@@ -5,14 +5,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace NativeApi
+namespace FluentConfigNativeApi
 {
-    public class Startup
+    public class StartupWayOne
     {
         private const string ApiVersion = "V1";
-        private const string ApiName = nameof(NativeApi);
+        private const string ApiName = nameof(FluentConfigNativeApi);
 
-        public Startup(IConfiguration configuration)
+        public StartupWayOne(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -22,6 +22,8 @@ namespace NativeApi
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddApplicationInsightsTelemetry();
 
             services.AddSwaggerGen(c =>
             {

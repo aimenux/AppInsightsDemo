@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace NativeApi.Controllers
+namespace JsonConfigNativeApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
