@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentConfigNativeApi", "FluentConfigNativeApi\FluentConfigNativeApi.csproj", "{38788B1A-8C8B-45E6-8C75-B2F520008DD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentConfigNativeApi", "FluentConfigNativeApi\FluentConfigNativeApi.csproj", "{38788B1A-8C8B-45E6-8C75-B2F520008DD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLib", "CoreLib\CoreLib.csproj", "{F9B323CC-5537-40C5-8DED-7AC514FE09AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{38788B1A-8C8B-45E6-8C75-B2F520008DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38788B1A-8C8B-45E6-8C75-B2F520008DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38788B1A-8C8B-45E6-8C75-B2F520008DD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B323CC-5537-40C5-8DED-7AC514FE09AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B323CC-5537-40C5-8DED-7AC514FE09AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B323CC-5537-40C5-8DED-7AC514FE09AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B323CC-5537-40C5-8DED-7AC514FE09AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

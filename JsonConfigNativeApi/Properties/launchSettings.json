@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "NativeBasedApi": {
+    "JsonConfigNativeApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

@@ -1,3 +1,5 @@
+using CoreLib.TelemetryInitializers;
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +26,9 @@ namespace JsonConfigNativeApi
             services.AddControllers();
 
             services.AddApplicationInsightsTelemetry();
+
+            services.AddSingleton<ITelemetryInitializer, IpTelemetryInitializer>();
+            services.AddSingleton<ITelemetryInitializer, UserTelemetryInitializer>();
 
             services.AddSwaggerGen(c =>
             {
