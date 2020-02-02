@@ -7,12 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace NlogApi
+namespace SerilogApi
 {
     public class Startup
     {
         private const string ApiVersion = "V1";
-        private const string ApiName = nameof(NlogApi);
+        private const string ApiName = nameof(SerilogApi);
 
         public Startup(IConfiguration configuration)
         {
