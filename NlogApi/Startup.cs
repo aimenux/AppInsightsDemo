@@ -23,6 +23,8 @@ namespace NlogApi
         {
             services.AddControllers();
 
+            services.AddApplicationInsightsTelemetry();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc(ApiVersion, new OpenApiInfo { Title = ApiName, Version = ApiVersion });
