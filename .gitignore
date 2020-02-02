@@ -351,3 +351,4 @@ MigrationBackup/
 /NativeApi/appsettings.Development.json
 /FluentConfigNativeApi/appsettings.Development.json
 /JsonConfigNativeApi/appsettings.Development.json
+/NlogApi/appsettings.Development.json
