@@ -9,7 +9,7 @@ Logging into AppInsights
 >
 >> **(1)** Native : based only on microsoft libraries (code/file config based)
 >>
->> **(2)** Nlog : based on nlog libraries (xml file config based)
+>> **(2)** NLog : based on nlog libraries (xml file config based)
 >>
 >> **(3)** Serilog : based on serilog libraries (json file config based)
 >

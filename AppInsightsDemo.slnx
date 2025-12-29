@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".github/workflows/ci.yml" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="CoreLib/CoreLib.csproj" />
+  <Project Path="NativeCodeConfigApi/NativeCodeConfigApi.csproj" />
+  <Project Path="NativeFileConfigApi/NativeFileConfigApi.csproj" />
+  <Project Path="NlogApi/NlogApi.csproj" />
+  <Project Path="SerilogApi/SerilogApi.csproj" />
+</Solution>
