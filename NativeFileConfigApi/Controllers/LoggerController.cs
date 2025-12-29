@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace SerilogApi.Controllers;
+namespace NativeFileConfigApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]

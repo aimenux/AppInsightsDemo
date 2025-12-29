@@ -1,32 +1,30 @@
-﻿using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
 using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
-namespace CoreLib.TelemetryInitializers
+namespace CoreLib.TelemetryInitializers;
+
+public class IpTelemetryInitializer : ITelemetryInitializer
 {
-    public class IpTelemetryInitializer : ITelemetryInitializer
+    private const string IpKey = "IpAddress";
+
+    public void Initialize(ITelemetry telemetry)
     {
-        private const string IpKey = "IpAddress";
-
-        public void Initialize(ITelemetry telemetry)
+        if (telemetry is MetricTelemetry)
         {
-            if (telemetry is MetricTelemetry)
-            {
-                return;
-            }
-
-            telemetry.Context.GlobalProperties.Add(IpKey, FindCurrentIpAddress());
+            return;
         }
 
-        private static string FindCurrentIpAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            return host.AddressList
-                       .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork)
-                       ?.ToString() ?? "Unfound";
-        }
+        telemetry.Context.GlobalProperties.Add(IpKey, FindCurrentIpAddress());
+    }
+
+    private static string FindCurrentIpAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        return host.AddressList
+            .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork)
+            ?.ToString() ?? "Unfound";
     }
 }

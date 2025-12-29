@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace SerilogApi.Controllers;
+namespace NativeCodeConfigApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]

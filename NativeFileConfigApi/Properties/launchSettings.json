@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:7696",
-      "sslPort": 44386
+      "applicationUrl": "http://localhost:3750",
+      "sslPort": 44355
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "FluentConfigNativeApi": {
+    "NativeFileConfigApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

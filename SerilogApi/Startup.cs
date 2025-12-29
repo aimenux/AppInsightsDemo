@@ -1,64 +1,48 @@
 using CoreLib.TelemetryInitializers;
 using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
-namespace SerilogApi
+namespace SerilogApi;
+
+public class Startup
 {
-    public class Startup
+    public void ConfigureServices(IServiceCollection services)
     {
-        private const string ApiVersion = "V1";
-        private const string ApiName = nameof(SerilogApi);
+        services.AddControllers();
 
-        public Startup(IConfiguration configuration)
+        services.AddApplicationInsightsTelemetry();
+
+        services.AddSingleton<ITelemetryInitializer, IpTelemetryInitializer>();
+        services.AddSingleton<ITelemetryInitializer, UserTelemetryInitializer>();
+
+        services.AddSwaggerGen(c =>
         {
-            Configuration = configuration;
+            c.SwaggerDoc(Constants.ApiVersion, new OpenApiInfo { Title = Constants.ApiName, Version = Constants.ApiVersion });
+        });
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
         }
 
-        public IConfiguration Configuration { get; }
+        app.UseHttpsRedirection();
 
-        public void ConfigureServices(IServiceCollection services)
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
         {
-            services.AddControllers();
+            c.SwaggerEndpoint($"/swagger/{Constants.ApiVersion}/swagger.json", Constants.ApiName);
+        });
 
-            services.AddApplicationInsightsTelemetry();
-
-            services.AddSingleton<ITelemetryInitializer, IpTelemetryInitializer>();
-            services.AddSingleton<ITelemetryInitializer, UserTelemetryInitializer>();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc(ApiVersion, new OpenApiInfo { Title = ApiName, Version = ApiVersion });
-            });
-        }
-
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        app.UseEndpoints(endpoints =>
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint($"/swagger/{ApiVersion}/swagger.json", ApiName);
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
+            endpoints.MapControllers();
+        });
     }
 }

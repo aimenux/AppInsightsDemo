@@ -2,11 +2,11 @@ using CoreLib.TelemetryInitializers;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.OpenApi;
 
-namespace NlogApi;
+namespace NativeCodeConfigApi;
 
-public class Startup
+public class StartupWayOne
 {
-    public void ConfigureServices(IServiceCollection services)
+    public static void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
 
@@ -21,7 +21,7 @@ public class Startup
         });
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
         {

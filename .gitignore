@@ -353,3 +353,6 @@ MigrationBackup/
 /JsonConfigNativeApi/appsettings.Development.json
 /NlogApi/appsettings.Development.json
 /SerilogApi/appsettings.Development.json
+
+# JetBrains
+.idea/*

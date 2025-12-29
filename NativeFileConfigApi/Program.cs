@@ -1,6 +1,4 @@
-using NLog.Web;
-
-namespace NlogApi;
+namespace NativeFileConfigApi;
 
 public static class Program
 {
@@ -16,5 +14,8 @@ public static class Program
             {
                 webHostBuilder.UseStartup<Startup>();
             })
-            .UseNLog();
+            .ConfigureLogging((hostingContext, loggingBuilder) =>
+            {
+                loggingBuilder.AddApplicationInsights(hostingContext.Configuration);
+            });
 }
